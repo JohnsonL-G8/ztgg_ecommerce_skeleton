@@ -1,9 +1,13 @@
 package ztgg.project.ecommerce.ecommerce.service;
 
+import ztgg.project.ecommerce.ecommerce.model.Product;
+
+import java.util.List;
+
 public interface ProductService {
-    void getItemByName(String name);
+    List<Product> getItemByName(String name);
 
-    void browseAllItems();
+    List<Product> browseAllItems();
 
-    void getItemsByPrice();
+    List<Product> getItemsByPrice(double lowPrice, double highPrice);
 }
