@@ -19,7 +19,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/item/name")
+    @RequestMapping("/item")
     public Map<String, Object> getItemByName(@RequestParam(value = "name") String name) {
         List<Product> items = productService.getItemByName(name);
         HashMap<String, Object> result = new HashMap<>();
@@ -28,7 +28,7 @@ public class ProductController {
         return result;
     }
 
-    @RequestMapping("/item/browseAll")
+    @RequestMapping("browseAll")
     public Map<String, Object> browseAllItems() {
         List<Product> items = productService.browseAllItems();
         HashMap<String, Object> result = new HashMap<>();
@@ -37,7 +37,7 @@ public class ProductController {
         return new HashMap<>();
     }
 
-    @RequestMapping("/item/itemsByPrice")
+    @RequestMapping("itemsByPrice")
     public Map<String, Object> getItemsByPrice(@RequestParam(value = "lowPrice") double lowPrice,
                                                @RequestParam(value = "highPrice") double highPrice) {
         List<Product> items = productService.getItemsByPrice(lowPrice, highPrice);
