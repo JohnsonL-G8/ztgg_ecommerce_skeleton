@@ -1,5 +1,6 @@
 package ztgg.project.ecommerce.ecommerce.impl;
 
+import org.springframework.stereotype.Service;
 import ztgg.project.ecommerce.ecommerce.model.Product;
 import ztgg.project.ecommerce.ecommerce.service.ProductService;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ProductServiceImpl implements ProductService {
     public static List<Product> products = new ArrayList<>();
 
@@ -29,5 +31,13 @@ public class ProductServiceImpl implements ProductService {
                 .filter(product -> product.getPrice() >= lowPrice && product.getPrice() <= highPrice)
                 .collect(Collectors.toList());
         return result;
+    }
+
+    @Override
+    public Product getItemById(int id) {
+        List<Product> result = products.stream()
+                .filter(product -> product.getId() == id)
+                .collect(Collectors.toList());
+        return result.size() == 0 ? null : result.get(0);
     }
 }

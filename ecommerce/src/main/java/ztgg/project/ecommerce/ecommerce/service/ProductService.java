@@ -10,4 +10,6 @@ public interface ProductService {
     List<Product> browseAllItems();
 
     List<Product> getItemsByPrice(double lowPrice, double highPrice);
+
+    Product getItemById(int id);
 }

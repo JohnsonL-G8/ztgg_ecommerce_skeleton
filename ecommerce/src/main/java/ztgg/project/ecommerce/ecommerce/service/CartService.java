@@ -1,7 +1,9 @@
 package ztgg.project.ecommerce.ecommerce.service;
 
-public interface CartService {
-    void addItemToCart(String id);
+import ztgg.project.ecommerce.ecommerce.model.Cart;
 
-    void displayCart();
+public interface CartService {
+    boolean addItemToCart(int id, int count);
+
+    Cart displayCart();
 }
